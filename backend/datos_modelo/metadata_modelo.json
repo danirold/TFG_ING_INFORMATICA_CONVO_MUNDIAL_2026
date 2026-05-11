@@ -1,0 +1,6 @@
+{
+    "archivo_original": "modelo_ESP_v2_Hibrido_xgb.pkl",
+    "algoritmo": "XGBoost",
+    "ventana": "V2 Híbrida",
+    "descripcion": "Algoritmo de aprendizaje secuencial donde cada árbol corrige los errores del anterior, refinando la predicción de forma iterativa. Destaca por su alta precisión y sus mecanismos internos de regularización."
+}
