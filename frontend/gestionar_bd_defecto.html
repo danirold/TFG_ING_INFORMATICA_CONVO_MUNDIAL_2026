@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de gestionar base de datos por defecto</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Gestionar Base de Datos por defecto</h1>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            <p style="color: var(--texto-principal); font-size: 0.95rem; margin-bottom: var(--espacio-md);">
+                Esta base de datos será utilizada por el modelo de predicción para generar las convocatorias si el usuario decide no adjuntar una propia.
+            </p>
+
+            <!-- Tarjeta Rojita para el ESTADO ACTUAL -->
+            <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa); margin-bottom: var(--espacio-md);">
+                <h3 style="margin-top: 0; margin-bottom: var(--espacio-xs); color: var(--texto-principal); font-family: var(--fuente-titulos); text-transform: uppercase; letter-spacing: 0.5px; font-size: 1.1rem;">Estado Actual</h3>
+                <p style="font-size: 0.95rem; color: #4B5563; margin-bottom: 0;">Base de datos activa: <strong style="color: var(--rojo-españa);">dataset_defecto.csv</strong></p>
+            </div>
+
+            <form id="formulario_actualizar_bd" style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- Caja de subida de archivo (Borde punteado rojo) -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border: 2px dashed var(--rojo-españa); border-radius: var(--radio-md); text-align: center;">
+                    <label for="archivo_bd" style="font-size: 0.95rem; font-weight: 600; color: var(--texto-principal); display: block; margin-bottom: var(--espacio-sm);">
+                        Selecciona el nuevo archivo (.csv):
+                    </label>
+                    <input type="file" id="archivo_bd" name="archivo_bd" accept=".csv" required style="font-size: 0.85rem; width: 100%; cursor: pointer;">
+                
+                    <p style="font-size: 0.85rem; color: #4B5563; margin-top: 10px; margin-bottom: 0;">
+                        ¿Quieres consultar el formato? <br>
+                        <a href="/api/admin/descargar_bd_defecto" download style="color: var(--rojo-españa); font-weight: bold; text-decoration: underline;">Descarga la base de datos actual aquí</a>.
+                    </p>
+                </div>
+
+                <!-- Grupo de botones -->
+                <div style="display: flex; flex-direction: column; gap: var(--espacio-sm);">
+                    <!-- Botón Verde de Confirmación -->
+                    <button type="submit" class="btn btn-exito btn-bloque">
+                        Actualizar base de datos
+                    </button>
+                    
+                    <!-- Botón Blanco Atrás -->
+                    <a href="/menu_principal_adm" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                        Volver
+                    </a>
+                </div>
+            </form>
+
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-sm);"></p>
+        </div>
+        
+    </div>
+
+    <script src="/static/gestionar_bd_defecto.js"></script>
+    
+</body>
+
+</html>

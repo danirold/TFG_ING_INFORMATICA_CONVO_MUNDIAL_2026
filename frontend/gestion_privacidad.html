@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de gestión de privacidad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Actualizamos la versión del CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Gestión de Privacidad</h1>
+            <p style="color: var(--texto-principal); font-weight: 500;">Configura tus preferencias de notificaciones.</p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            <p style="color: var(--texto-principal); font-size: 0.95rem; margin-bottom: var(--espacio-md);">
+                Elige si deseas recibir avisos sobre el estado de tus predicciones, actualizaciones del modelo o novedades en la aplicación.
+            </p>
+
+            <form id="formulario_notificaciones" style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- OPCIÓN 1: Activar (Estilo Rojito) -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa);">
+                    <label style="display: flex; align-items: center; gap: var(--espacio-sm); cursor: pointer; font-weight: 600; color: var(--texto-principal);">
+                        <input type="radio" id="opcion_activar" name="notif" value="true">
+                        Activar notificaciones
+                    </label>
+                    <p style="margin-top: var(--espacio-sm); font-size: 0.85rem; color: #4B5563; padding-left: 24px;">Recibirás correos electrónicos con alertas y novedades importantes.</p>
+                </div>
+
+                <!-- OPCIÓN 2: Desactivar (Estilo Rojito) -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa);">
+                    <label style="display: flex; align-items: center; gap: var(--espacio-sm); cursor: pointer; font-weight: 600; color: var(--texto-principal);">
+                        <input type="radio" id="opcion_desactivar" name="notif" value="false" checked>
+                        Desactivar notificaciones
+                    </label>
+                    <p style="margin-top: var(--espacio-sm); font-size: 0.85rem; color: #4B5563; padding-left: 24px;">No te enviaremos ningún aviso a tu correo electrónico.</p>
+                </div>
+
+                <!-- Botones -->
+                <div style="display: flex; flex-direction: column; gap: var(--espacio-sm); margin-top: var(--espacio-sm);">
+                    <button type="submit" class="btn btn-exito btn-bloque">
+                        Confirmar preferencias
+                    </button>
+                    <a href="/mi_perfil" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                        Volver
+                    </a>
+                </div>
+
+            </form>
+
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-sm);"></p>
+        </div>
+        
+    </div>
+
+    <script src="/static/gestion_privacidad.js"></script>
+
+</body>
+
+</html>

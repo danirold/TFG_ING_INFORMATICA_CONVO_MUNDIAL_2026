@@ -1,0 +1,150 @@
+Orden columnas Dataset Fútbol:
+- Rk: numero de los jugadores en orden
+Mantener el valor de la primera fila. Al final de todo el proceso, re-numeraremos la columna entera
+
+- Player: nombre del jugador
+Mantener el nombre de la primera fila
+
+- Nation: nacionalidad del jugador
+Mantener la nacionalidad de la primera fila
+
+- Pos: posición del jugador (FW, MF, DF, GK)
+Compararemos los textos de ambas y nos quedaremos con todas las posiciones distintas que aparezcan
+
+- Squad: nombre del club
+Comparar con el .txt y elegir el que coincida
+
+- Comp: liga en la que juega el jugador
+Coger el valor de la fila del equipo seleccionado anteriormente
+
+- Age: edad del jugador
+Mantener el valor de la primera fila
+
+- Born: año de nacimiento del jugador
+Mantener el valor de la primera fila
+
+- MP: partidos jugados
+Suma de las dos filas
+
+- Starts: titularidades
+Suma de las dos filas
+
+- Min: total de minutos jugados
+Suma de las dos filas
+
+- 90s: minutos totales / 90
+Recalcular con el nuevo valor de Min, haciendo Min/90
+
+- Gls: goles
+Suma de las dos filas
+
+- Ast: asistencias
+Suma de las dos filas
+
+- G + A: goles + asistencias
+Suma de las dos filas
+
+- G - PK: goles sin penaltis anotados
+Suma de las dos filas
+
+- PK: penaltis anotados
+Suma de las dos filas
+
+- PKatt: penaltis lanzados
+Suma de las dos filas
+
+- CrdY: tarjetas amarillas
+Suma de las dos filas
+
+- CrdR: tarjetas rojas
+Suma de las dos filas
+
+- G + A - PK: goles mas asistencias sin penaltis metidos / columna 90s
+Recalcular con los nuevos valores de las columnas de G + A - PK / 90s
+
+- Sh: tiros
+Suma de las dos filas
+
+- SoT: tiros a portería
+Suma de las dos filas
+
+- SoT%: porcentaje de tiros a portería
+Recalcular con el nuevo valor
+
+- Sh/90: tiros por cada 90 minutos jugados
+Recalcular con el nuevo valor 
+
+- SoT/90: tiros a puerta por cada 90 minutos jugados
+Recalcular con el nuevo valor
+
+- G/Sh: media de goles por tiros
+Recalcular con el nuevo valor
+
+- G/SoT: media de goles por tiros a puerta
+Recalcular con el nuevo valor
+
+- Crs: centros
+Suma de las dos filas
+
+- TklW: entradas (tackles) ganadas 
+Suma de las dos filas
+
+- Int: intercepciones (cortes de balón)
+Suma de las dos filas
+
+- Fld: faltas recibidas
+Suma de las dos filas
+
+- 2CrdY: segundas tarjetas amarillas (que se convierten en roja)
+Suma de las dos filas
+
+- Fls: faltas cometidas
+Suma de las dos filas
+
+- OG: goles en propia
+Suma de las dos filas
+
+- GA: goles en contra recibidos
+Suma de las dos filas
+
+- GA90: goles en contra recibidos por cada 90 minutos jugados
+Recalcular con el nuevo valor de goles en contra recibidos
+
+- SoTA: tiros a puerta recibidos
+Suma de las dos filas
+
+- Saves: paradas realizadas
+Suma de las dos filas
+
+- Save%: porcentaje de paradas
+Recalcular con los nuevos valores obtenidos
+
+- W: victorias conseguidas con él en el campo
+Suma de las dos filas
+
+- D: empates conseguidos con él en el campo
+Suma de las dos filas
+
+- L: derrotas conseguidas con él en el campo
+Suma de las dos filas
+
+- CS: porterías vacías, a 0
+Suma de las dos filas
+
+- CS%: porcentaje de partidos en los que mantuvo la portería a 0
+Recalcular con el nuevo dato obtenido
+
+- PKatt_stats_keeper: penaltis lanzados por el equipo rival
+Suma de las dos filas
+
+- PKA: penaltis que le han metido al jugador
+Suma de las dos filas
+
+- PKsv: penaltis parados por el jugador
+Suma de las dos filas
+
+- PKm: penaltis que el rival fallo sin intervención del jugador, es decir, se fueron fuera o al palo
+Suma de las dos filas
+
+- Ultimas 10 convocatorias de la Selección
+Mantener el valor de la primera fila

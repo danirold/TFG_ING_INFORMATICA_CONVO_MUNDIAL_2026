@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de la información del perfil de usuario</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Actualizamos versión de CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Información Personal</h1>
+            <p style="color: var(--texto-principal); font-weight: 500;">Modifica tus datos de perfil.</p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            
+            <form id="formulario_perfil" style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <div>
+                    <label for="nombre" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">Nombre:</label>
+                    <input type="text" id="nombre" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem; color: var(--texto-principal);">
+                </div>
+
+                <div>
+                    <label for="apellido1" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">Primer apellido:</label>
+                    <input type="text" id="apellido1" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem; color: var(--texto-principal);">
+                </div>
+
+                <div>
+                    <label for="apellido2" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">Segundo apellido:</label>
+                    <input type="text" id="apellido2" style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem; color: var(--texto-principal);">
+                </div>
+
+                <div>
+                    <label for="email" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">Correo electrónico:</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem; color: var(--texto-principal);">
+                </div>
+
+                <div style="margin-bottom: var(--espacio-sm);">
+                    <label for="contra" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">Contraseña:</label>
+                    <input type="password" id="contra" placeholder="Escribe para cambiarla" style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem; color: var(--texto-principal);">
+                </div>
+                
+                <!-- Botones -->
+                <div style="display: flex; flex-direction: column; gap: var(--espacio-sm);">
+                    <!-- Usamos el verde para confirmar -->
+                    <button type="submit" class="btn btn-exito btn-bloque">
+                        Confirmar cambios
+                    </button>
+                    
+                    <a href="/mi_perfil" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                        Volver
+                    </a>
+                </div>
+            </form>
+            
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-sm);"></p>
+        </div>
+    </div>
+
+    <script src="/static/informacion_personal.js"></script>
+</body>
+
+</html>

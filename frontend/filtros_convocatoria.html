@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de elegir filtros para la predicción de la convocatoria</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css?v=605"> 
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;"> 
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Paso 3: Aplicar filtros</h1>
+            <p style="color: #000000; font-weight: 500;">Selección: <strong id="seleccion_mostrada" style="color: var(--rojo-españa);">Cargando...</strong></p>
+            <p style="color: #000000; font-weight: 500; margin-top: 5px;">Base de datos: <strong id="bd_mostrada" style="color: var(--rojo-españa);">Cargando...</strong></p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            <p style="color: var(--texto-principal); font-size: 0.95rem; margin-bottom: var(--espacio-md);">Ajusta los parámetros para la convocatoria. Desmarca las opciones que no desees tener en cuenta.</p>
+
+            <form id="formulario_filtros" style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- BLOQUE 1: EDAD (Estilo Rojito) -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa);">
+                    <strong style="display: block; margin-bottom: var(--espacio-sm); color: var(--texto-principal);">Rango de edad</strong>
+                    <div style="display: flex; gap: var(--espacio-md); align-items: center;">
+                        <div style="display: flex; flex-direction: column;">
+                            <label for="edad_min" style="font-size: 0.85rem; color: #4B5563; margin-bottom: 4px;">Mínima:</label>
+                            <input type="number" id="edad_min" name="edad_min" min="15" max="45" placeholder="Ej. 18" style="padding: 8px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); width: 80px;">
+                        </div>
+                        <span style="color: #94A3B8;">-</span>
+                        <div style="display: flex; flex-direction: column;">
+                            <label for="edad_max" style="font-size: 0.85rem; color: #4B5563; margin-bottom: 4px;">Máxima:</label>
+                            <input type="number" id="edad_max" name="edad_max" min="15" max="45" placeholder="Ej. 35" style="padding: 8px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); width: 80px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOQUE 2: POSICIONES (Estilo Rojito) -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa);">
+                    <strong style="display: block; margin-bottom: var(--espacio-xs); color: var(--texto-principal);">Posiciones a incluir</strong>
+                    <p style="font-size: 0.85rem; color: #64748B; margin-bottom: var(--espacio-sm);">Desmarca las posiciones que quieras excluir de la predicción.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="posicion" value="POR" checked> Porteros</label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="posicion" value="DEF" checked> Defensas</label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="posicion" value="MED" checked> Centrocampistas</label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="posicion" value="DEL" checked> Delanteros</label>
+                    </div>
+                </div>
+
+                <!-- BLOQUE 3: LIGAS (Estilo Rojito) -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa);">
+                    <strong style="display: block; margin-bottom: var(--espacio-xs); color: var(--texto-principal);">Ligas de procedencia</strong>
+                    <p style="font-size: 0.85rem; color: #64748B; margin-bottom: var(--espacio-sm);">Se evaluarán jugadores de estas competiciones.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="liga" value="LaLiga" checked> LaLiga</label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="liga" value="Premier League" checked> Premier League</label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="liga" value="Serie A" checked> Serie A</label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="liga" value="Bundesliga" checked> Bundesliga</label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;"><input type="checkbox" name="liga" value="Ligue 1" checked> Ligue 1</label>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div style="display: flex; flex-direction: column; gap: var(--espacio-sm); margin-top: var(--espacio-sm);">
+                    <button type="submit" class="btn btn-exito btn-bloque">
+                        Confirmar filtros y continuar
+                    </button>
+                    <a href="/anadir_bd_prediccion" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                        Volver
+                    </a>
+                </div>
+            </form>
+
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-sm);"></p>
+        </div>
+        
+    </div>
+
+    <script src="/static/filtros_convocatoria.js"></script>
+    
+</body>
+
+</html>

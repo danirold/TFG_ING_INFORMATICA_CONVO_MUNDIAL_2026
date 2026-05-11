@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de eliminar cuenta de usuario</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css?v=600">
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Eliminar cuenta</h1>
+            <p style="color: var(--color-error); font-weight: 500;">Acción irreversible</p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            
+            <!-- Caja de advertencia -->
+            <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--color-error); margin-bottom: var(--espacio-md);">
+                <p style="color: var(--texto-principal); font-weight: 600; margin-bottom: var(--espacio-sm);">Estás a punto de eliminar tu cuenta permanentemente.</p>
+                <p style="color: #4B5563; font-size: 0.9rem;">Todos tus datos se perderán y esta acción <strong>no se puede deshacer</strong>.</p>
+            </div>
+
+            <!-- Botones -->
+            <div style="display: flex; flex-direction: column; gap: var(--espacio-sm);">
+                <!-- Usamos la clase btn-peligro que acabamos de crear en el CSS -->
+                <button id="boton_confirmar_eliminar" type="button" class="btn btn-peligro btn-bloque">
+                    Confirmar eliminación
+                </button>
+                
+                <!-- Botón Cancelar (Diseño ghost estándar) -->
+                <a href="/mi_perfil" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                    Cancelar
+                </a>
+            </div>
+
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-sm);"></p>
+        </div>
+        
+    </div>
+
+    <script src="/static/eliminar_cuenta.js"></script>
+</body>
+
+</html>

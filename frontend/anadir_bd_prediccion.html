@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de añadir base de datos para la predicción</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css"> 
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px; background-color: #ffffff;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Paso 2: Base de datos</h1>
+            <p>Selección elegida: <strong id="seleccion_mostrada" style="color: var(--rojo-españa);">Cargando...</strong></p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            <p style="color: var(--texto-principal); font-size: 0.95rem;">Elige el conjunto de datos de futbolistas que se utilizará para la predicción.</p>
+
+            <form id="formulario_bd_prediccion" style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- OPCIÓN 1: Sub-tarjeta con tonos "rojitos" -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa);">
+                    <label style="display: flex; align-items: center; gap: var(--espacio-sm); cursor: pointer; font-weight: 600; color: var(--texto-principal);">
+                        <input type="radio" name="opcion_bd" value="defecto" checked>
+                        Usar base de datos por defecto
+                    </label>
+                    <p style="margin-top: var(--espacio-sm); font-size: 0.85rem; color: #4B5563; padding-left: 24px;">El sistema utilizará la base de datos por defecto, actualizada por el administrador.</p>
+                </div>
+
+                <!-- OPCIÓN 2: Sub-tarjeta con tonos "rojitos" -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa);">
+                    <label style="display: flex; align-items: center; gap: var(--espacio-sm); cursor: pointer; font-weight: 600; color: var(--texto-principal);">
+                        <input type="radio" name="opcion_bd" value="propia">
+                        Adjuntar base de datos propia
+                    </label>
+                    <p style="margin-top: var(--espacio-sm); font-size: 0.85rem; color: #4B5563; padding-left: 24px;">Sube tu propio archivo .csv con las estadísticas y datos de los jugadores.</p>
+                    
+                    <!-- Caja de subida de archivo con borde punteado también en rojo -->
+                    <div id="div_subir_archivo" style="display: none; margin-top: var(--espacio-md); padding: var(--espacio-md); border: 2px dashed var(--rojo-españa); border-radius: var(--radio-sm); text-align: center; background-color: var(--fondo-blanco);">
+                        <label for="archivo_bd" style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: var(--espacio-sm);">Selecciona el archivo (.csv):</label>
+                        <input type="file" id="archivo_bd" name="archivo_bd" accept=".csv" style="font-size: 0.85rem; width: 100%;">
+                        <p style="font-size: 0.85rem; color: #4B5563; margin-top: 15px; margin-bottom: 0;">
+                            ¿Quieres consultar el formato? <br>
+                            <a href="/api/users/descargar_bd_defecto" download style="color: var(--rojo-españa); font-weight: bold; text-decoration: underline;">Descarga la base de datos actual aquí</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Grupo de botones -->
+                <div style="display: flex; flex-direction: column; gap: var(--espacio-sm); margin-top: var(--espacio-sm);">
+                    <!-- Botón verde con borde negro, definido en CSS -->
+                    <button type="submit" class="btn btn-exito btn-bloque">
+                        Confirmar y continuar
+                    </button>
+                    <!-- Botón blanco con borde negro, definido en CSS -->
+                    <a href="/elegir_seleccion" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                        Volver
+                    </a>
+                </div>
+            </form>
+
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-sm);"></p>
+        </div>
+        
+    </div>
+
+    <script src="/static/anadir_bd_prediccion.js"></script>
+    
+</body>
+
+</html>

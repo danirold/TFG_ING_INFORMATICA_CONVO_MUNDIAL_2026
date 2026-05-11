@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla visualizar resultados de la predicción</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Actualizamos versión de CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body style="padding-bottom: var(--espacio-xl);">
+    
+    <!-- Navegación Superior con margen top para que respire -->
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1000px; margin-top: var(--espacio-xl); margin-bottom: var(--espacio-lg);">
+        
+        <!-- Botón Volver -->
+        <a href="/generar_prediccion" class="btn btn-ghost">
+            Volver
+        </a>
+        
+        <!-- Botón Volver al menú -->
+        <a href="/menu_principal" class="btn btn-ghost">
+            Volver al menú principal
+        </a>
+        
+    </div>
+
+    <!-- Cabecera de Página -->
+    <div style="text-align: center; margin-bottom: var(--espacio-lg);">
+        <h1 style="margin-bottom: var(--espacio-sm);">Resultados de la Predicción</h1>
+        <p style="color: var(--texto-principal); font-weight: 500; font-size: 1.1rem;">
+            Analiza la convocatoria generada, guárdala en tu historial o descárgala en PDF.
+        </p>
+    </div>
+
+    <!-- Barra de Acciones (Botones centrados) -->
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: var(--espacio-md); margin-bottom: var(--espacio-xl);">
+        
+        <button id="btn_info_modelo" class="btn btn-ghost" style="flex: 1; max-width: 250px;">
+            Información del modelo
+        </button>
+        
+        <button id="btn_descargar" class="btn btn-ghost" style="flex: 1; max-width: 250px;">
+            Descargar en PDF
+        </button>
+
+        <button id="btn_abrir_guardar" class="btn btn-exito" style="flex: 1; max-width: 250px;">
+            Guardar en el historial
+        </button>
+        
+    </div>
+    
+    <!-- Mensaje de estado al descargar -->
+    <div style="text-align: center; margin-top: -15px; margin-bottom: 20px;">
+        <span id="estado_accion" style="font-weight: 600; font-size: 0.95rem;"></span>
+    </div>
+
+    <!-- Contenedor Principal (Tarjetas Izquierda y Derecha) -->
+    <div class="contenedor-columnas" style="width: 100%; max-width: 1000px;">
+        
+        <!-- Columna Titulares -->
+        <div class="columna-jugadores">
+            <h2 style="margin-top: 0; font-family: var(--fuente-titulos); text-transform: uppercase; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; text-align: left;">
+                Convocatoria oficial (26 jugadores)
+            </h2>
+            <div id="contenedor_titulares" style="text-align: left;"></div>
+        </div>
+
+        <!-- Columna Reservas -->
+        <div class="columna-jugadores" style="border-top-color: #F59E0B;">
+            <h2 style="margin-top: 0; font-family: var(--fuente-titulos); text-transform: uppercase; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; text-align: left;">
+                Lista de reservas
+            </h2>
+            <div id="contenedor_reservas" style="text-align: left;"></div>
+        </div>
+        
+    </div>
+
+    <!-- Modal Info Modelo -->
+    <div id="modal_info" class="modal-overlay">
+        <div class="modal-content" style="text-align: left;">
+            <h2 style="margin-top: 0; font-family: var(--fuente-titulos); text-transform: uppercase; border-bottom: 2px solid var(--rojo-españa); padding-bottom: 10px;">
+                Ficha Técnica IA
+            </h2>
+            
+            <div id="cuerpo_info" style="color: var(--texto-principal); line-height: 1.6; margin-top: var(--espacio-md);">
+                <p><strong>Archivo entrenado:</strong> <span id="info_archivo" style="color: #000;"></span></p>
+                <p><strong>Algoritmo:</strong> <span id="info_algoritmo" style="color: #000;"></span></p>
+                <p><strong>Ventana:</strong> <span id="info_ventana" style="color: #000;"></span></p>
+                
+                <div style="background: #F8FAFC; padding: var(--espacio-sm); border-left: 4px solid var(--rojo-españa); margin-top: var(--espacio-md);">
+                    <p id="info_descripcion" style="margin: 0; font-size: 0.95rem;"></p>
+                </div>
+            </div>
+
+            <div style="text-align: right; margin-top: var(--espacio-lg);">
+                <button onclick="cerrarModal('modal_info')" class="btn btn-ghost">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Guardar Historial -->
+    <div id="modal_guardar" class="modal-overlay">
+        <div class="modal-content" style="text-align: left;">
+            <h2 style="color: #000; margin-top: 0; font-family: var(--fuente-titulos); text-transform: uppercase; border-bottom: 2px solid var(--color-exito); padding-bottom: 10px;">
+                Guardar convocatoria
+            </h2>
+            
+            <p style="color: var(--texto-principal); margin: var(--espacio-md) 0;">
+                Introduce un nombre para almacenar esta predicción en tu historial:
+            </p>
+            
+            <input type="text" id="input_nombre_historial" placeholder="Ej: España Mundial V3" style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem; margin-bottom: var(--espacio-md);">
+            
+            <p id="msg_error_guardar" style="color: var(--color-error); font-weight: 600; display: none; margin-bottom: var(--espacio-sm);"></p>
+            <p id="msg_exito_guardar" style="color: var(--color-exito); font-weight: 600; display: none; margin-bottom: var(--espacio-sm);"></p>
+
+            <div style="display: flex; justify-content: flex-end; gap: var(--espacio-sm); margin-top: var(--espacio-md);">
+                <button onclick="cerrarModal('modal_guardar')" class="btn btn-ghost">Cancelar</button>
+                <button id="btn_confirmar_guardar" class="btn btn-exito">Confirmar guardado</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/visualizar_resultados.js"></script>
+</body>
+
+</html>

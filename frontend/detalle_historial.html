@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de detalles de una convocatoria guardada en el historial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body style="padding-bottom: var(--espacio-xl);">
+    
+    <!-- Navegación Superior con margen top para que respire -->
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1000px; margin-top: var(--espacio-xl); margin-bottom: var(--espacio-lg);">
+        
+        <!-- Botón Volver -->
+        <a href="/historial_predicciones" class="btn btn-ghost">
+            Volver al historial
+        </a>
+        
+        <!-- Botón Volver al menú -->
+        <a href="/menu_principal" class="btn btn-ghost">
+            Volver al menú principal
+        </a>
+        
+    </div>
+
+    <!-- Cabecera de Página -->
+    <div style="text-align: center; margin-bottom: var(--espacio-lg);">
+        <h1 id="titulo_detalle" style="margin-bottom: var(--espacio-sm); text-transform: uppercase;">Detalle de Convocatoria</h1>
+        <p style="color: var(--texto-principal); font-weight: 500; font-size: 1.1rem;">
+            Visualización de la predicción guardada en tu historial.
+        </p>
+    </div>
+
+    <!-- Barra de Acciones (Botones centrados) -->
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: var(--espacio-md); margin-bottom: var(--espacio-xl);">
+        
+        <button id="btn_descargar_detalle" class="btn btn-primario" style="flex: 1; max-width: 250px;">
+            Descargar en PDF
+        </button>
+        
+    </div>
+    
+    <!-- Mensaje de estado al descargar -->
+    <div style="text-align: center; margin-top: -15px; margin-bottom: 20px;">
+        <span id="estado_accion_detalle" style="font-weight: 600; font-size: 0.95rem;"></span>
+    </div>
+
+    <!-- Contenedor Principal (Tarjetas Izquierda y Derecha) -->
+    <div class="contenedor-columnas" style="width: 100%; max-width: 1000px;">
+        
+        <!-- Columna Titulares -->
+        <div class="columna-jugadores">
+            <h2 style="margin-top: 0; font-family: var(--fuente-titulos); text-transform: uppercase; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; text-align: left;">
+                Convocatoria oficial (26)
+            </h2>
+            <div id="contenedor_titulares" style="text-align: left;"></div>
+        </div>
+
+        <!-- Columna Reservas -->
+        <div class="columna-jugadores" style="border-top-color: #F59E0B;">
+            <h2 style="margin-top: 0; font-family: var(--fuente-titulos); text-transform: uppercase; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; text-align: left;">
+                Lista de reservas
+            </h2>
+            <div id="contenedor_reservas" style="text-align: left;"></div>
+        </div>
+        
+    </div>
+
+    <script src="/static/detalle_historial.js"></script>
+</body>
+
+</html>

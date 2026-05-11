@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de generar predicción de la convocatoria</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Actualizamos la versión del CSS por si acaso -->
+    <link rel="stylesheet" href="/static/style.css?v=604">
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Paso 4: Generar Predicción</h1>
+            <p style="color: var(--texto-principal); font-weight: 500;">Lanza el modelo de IA para predecir la convocatoria de 26 jugadores.</p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            
+            <!-- Resumen de Configuración (Estilo "Sub-tarjeta Rojita") -->
+            <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa); margin-bottom: var(--espacio-md);">
+                <strong style="display: block; margin-bottom: var(--espacio-sm); color: var(--texto-principal);">Resumen de configuración</strong>
+                <ul style="list-style-type: none; margin: 0; padding: 0; font-size: 0.95rem; color: #4B5563;">
+                    <li style="margin-bottom: 6px;">
+                        <span style="display: inline-block; width: 120px;"><strong>Selección:</strong></span> 
+                        <span id="res_sel" style="color: var(--rojo-españa); font-weight: 600;">...</span>
+                    </li>
+                    <li>
+                        <span style="display: inline-block; width: 120px;"><strong>Base de datos:</strong></span> 
+                        <span id="res_bd" style="color: var(--rojo-españa); font-weight: 600;">...</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Botones alineados con el sistema -->
+            <div style="display: flex; flex-direction: column; gap: var(--espacio-sm);">
+                <!-- Botón Principal (AHORA VERDE) -->
+                <button id="btn_generar" type="button" class="btn btn-exito btn-bloque">
+                    Generar convocatoria
+                </button>
+
+                <!-- Botón volver -->
+                <a href="/filtros_convocatoria" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                    Volver
+                </a>
+            </div>
+
+            <!-- Mensaje de Estado (se llena por JS) -->
+            <p id="mensaje_estado" style="text-align: center; margin-top: var(--espacio-sm); display: none;"></p>
+
+            <!-- Contenedor para visualizar resultados (Oculto por defecto) -->
+            <div id="contenedor_visualizar" style="margin-top: var(--espacio-lg); padding-top: var(--espacio-md); border-top: 2px dashed var(--rojo-españa); text-align: center; display: none;">
+                <p style="color: var(--texto-principal); font-weight: 600; margin-bottom: var(--espacio-sm);">El modelo ha finalizado la predicción de la convocatoria.</p>
+                <button id="btn_visualizar" class="btn btn-exito btn-bloque">
+                    Visualizar resultados
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/static/generar_prediccion.js"></script>
+
+</body>
+
+</html>

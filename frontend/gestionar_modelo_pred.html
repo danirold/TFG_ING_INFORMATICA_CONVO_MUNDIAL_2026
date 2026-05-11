@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de gestionar modelo predictivo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Gestionar Modelo Predictivo</h1>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            <p style="color: var(--texto-principal); font-size: 0.95rem; margin-bottom: var(--espacio-md);">
+                Sube el archivo del modelo entrenado (.pkl) y completa su ficha de información técnica para que los usuarios puedan consultarla.
+            </p>
+
+            <!-- Tarjeta Rojita para el ESTADO ACTUAL -->
+            <div style="background-color: #FFF5F5; padding: var(--espacio-md); border-radius: var(--radio-md); border: 2px solid var(--rojo-españa); margin-bottom: var(--espacio-md);">
+                <h3 style="margin-top: 0; margin-bottom: var(--espacio-xs); color: var(--texto-principal); font-family: var(--fuente-titulos); text-transform: uppercase; letter-spacing: 0.5px; font-size: 1.1rem;">Estado Actual</h3>
+                <p style="font-size: 0.95rem; color: #4B5563; margin-bottom: 0;">Modelo activo: <strong id="nombre_modelo_activo" style="color: var(--rojo-españa);">Cargando...</strong></p>
+            </div>
+
+            <form id="formulario_actualizar_modelo" style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- 1. Archivo (Caja de subida punteada rojita) -->
+                <div style="background-color: #FFF5F5; padding: var(--espacio-md); border: 2px dashed var(--rojo-españa); border-radius: var(--radio-md); text-align: center;">
+                    <label for="archivo_modelo" style="font-size: 0.95rem; font-weight: 600; color: var(--texto-principal); display: block; margin-bottom: var(--espacio-sm);">
+                        1. Selecciona el nuevo modelo de IA (.pkl):
+                    </label>
+                    <input type="file" id="archivo_modelo" name="archivo_modelo" accept=".pkl" required style="font-size: 0.85rem; width: 100%; cursor: pointer;">
+                </div>
+
+                <!-- 2. Algoritmo -->
+                <div>
+                    <label for="meta_algoritmo" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">
+                        2. Algoritmo utilizado:
+                    </label>
+                    <input type="text" id="meta_algoritmo" name="meta_algoritmo" placeholder="Ej: Random Forest, XGBoost..." required style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem;">
+                </div>
+
+                <!-- 3. Ventana -->
+                <div>
+                    <label for="meta_ventana" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">
+                        3. Configuración elegida (Ventana):
+                    </label>
+                    <input type="text" id="meta_ventana" name="meta_ventana" placeholder="Ej: V3 Continuista, V1 Meritocrática..." required style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem;">
+                </div>
+
+                <!-- 4. Descripción -->
+                <div>
+                    <label for="meta_descripcion" style="font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); display: block; margin-bottom: 4px;">
+                        4. Descripción del modelo predictivo:
+                    </label>
+                    <textarea id="meta_descripcion" name="meta_descripcion" rows="4" placeholder="Escribe una breve descripción del modelo" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E1; border-radius: var(--radio-sm); font-family: var(--fuente-principal); font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
+
+                <!-- Grupo de botones -->
+                <div style="display: flex; flex-direction: column; gap: var(--espacio-sm); margin-top: var(--espacio-sm);">
+                    <button type="submit" class="btn btn-exito btn-bloque">
+                        Actualizar modelo IA
+                    </button>
+                    
+                    <a href="/menu_principal_adm" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                        Volver
+                    </a>
+                </div>
+            </form>
+
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-sm);"></p>
+        </div>
+        
+    </div>
+
+    <script src="/static/gestionar_modelo_pred.js"></script>
+    
+</body>
+
+</html>

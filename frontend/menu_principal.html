@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla del menú principal de usuario</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Actualizamos versión de CSS -->
+    <link rel="stylesheet" href="/static/style.css">  
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Menú Principal</h1>
+            <p style="color: #333333; font-weight: 500;">Bienvenido a la aplicación, has iniciado sesión correctamente.</p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            
+            <div style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- Botón 1: Generar Convocatoria (Blanco) -->
+                <a href="/elegir_seleccion" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                    Generar nueva convocatoria
+                </a>
+
+                <!-- Botón 2: Historial (Blanco) -->
+                <a href="/historial_predicciones" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                    Ver historial de predicciones
+                </a>
+
+                <!-- Botón 3: Mi Perfil (Blanco, vuelve a su sitio original) -->
+                <a href="/mi_perfil" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                    Mi perfil
+                </a>
+
+                <!-- Separador visual -->
+                <hr style="border: 0; border-top: 1px solid #CBD5E1; margin: var(--espacio-sm) 0;">
+
+                <!-- Botón 4: Cerrar Sesión (Usamos la clase btn-peligro exacta de siempre) -->
+                <button id="boton_cerrar_sesion" type="button" class="btn btn-peligro btn-bloque">
+                    Cerrar sesión
+                </button>
+                
+            </div>
+
+            <p id="mensaje_respuesta" style="font-weight: 600; text-align: center; margin-top: var(--espacio-md);"></p>
+
+        </div>
+    </div>
+
+    <script src="/static/menu_principal.js"></script>
+
+</body>
+
+</html>

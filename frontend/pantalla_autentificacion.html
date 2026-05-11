@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de autentificación de la aplicación</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Actualizamos versión de CSS -->
+    <link rel="stylesheet" href="/static/style.css">  
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>MICONVO26</h1>
+            <!-- Subpárrafo oscurecido para máxima legibilidad -->
+            <p style="color: #333333; font-weight: 500;">
+                Bienvenido a la plataforma predictiva para la gestión y análisis de convocatorias de la Copa Mundial de la FIFA 2026.
+            </p>
+            <p style="color: #333333; font-weight: 500;">
+                Selecciona tu perfil de acceso para continuar.
+            </p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            
+            <div style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- Botón Administrador (Blanco) -->
+                <button id="boton_iniciar_sesion_adm" type="button" class="btn btn-ghost btn-bloque">
+                    Iniciar sesión como administrador
+                </button>
+                
+                <!-- Botón Usuario (Blanco) -->
+                <button id="boton_iniciar_sesion_usu" type="button" class="btn btn-ghost btn-bloque">
+                    Iniciar sesión como usuario
+                </button>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/static/pantalla_autentificacion.js"></script>
+
+</body>
+
+</html>

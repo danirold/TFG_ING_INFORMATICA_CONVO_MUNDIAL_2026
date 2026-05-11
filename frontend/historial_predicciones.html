@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla del historial de predicciones del usuario</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Actualizamos versión de CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--rojo-españa); padding-bottom: var(--espacio-md); margin-bottom: var(--espacio-md);">
+            <div class="adorno-bandera"></div>
+            <div style="text-align: left;">
+                <h1 style="margin-bottom: 0;">Historial de Predicciones</h1>
+                <p style="color: var(--texto-principal); font-weight: 500;">Consulta tus convocatorias guardadas o elimina las que ya no necesites.</p>
+            </div>
+            
+            <div>
+                <a href="/menu_principal" class="btn btn-ghost" style="text-align: center;">
+                    Volver al menú principal
+                </a>
+            </div>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left; padding-top: 0;">
+
+            <div id="contenedor_historial">
+                <p id="mensaje_estado" style="font-weight: 600; color: var(--texto-principal); text-align: center; padding: var(--espacio-xl) 0;">Cargando tu historial...</p>
+                
+                <table class="tabla-datos" id="tabla_historial" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Nombre de la Convocatoria</th>
+                            <th>Selección</th>
+                            <th>Fecha de Guardado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo_tabla"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Borrado (Estilo corporativo) -->
+    <div id="modal_confirmar_borrado" class="modal-overlay">
+        <!-- Añadido text-align: center para centrar los textos igual que en tu captura -->
+        <div class="modal-content" style="text-align: center;">
+            <h2 style="color: var(--color-error); font-family: var(--fuente-titulos); text-transform: uppercase; margin-top: 0; border-bottom: 2px solid var(--color-error); padding-bottom: 10px;">Eliminar Convocatoria</h2>
+            
+            <p id="texto_confirmacion_borrado" style="color: var(--texto-principal); margin: 20px 0 10px 0; font-size: 1.05rem;"></p>
+            
+            <p id="msg_error_borrado" style="color: var(--color-error); display: none; margin-bottom: 15px; font-weight: bold;"></p>
+
+            
+            <div style="display: flex; justify-content: center; gap: var(--espacio-md); margin-top: var(--espacio-lg);">
+                <button id="btn_cancelar_borrado" class="btn btn-ghost">Cancelar</button>
+                <button id="btn_aceptar_borrado" class="btn btn-peligro">Confirmar eliminación</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/historial_predicciones.js"></script>
+</body>
+
+</html>
