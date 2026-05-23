@@ -15,7 +15,7 @@ class Usuario(Base):
     rol = Column(String, default="usuario") #Hay que distinguir entre usuario o administrador
     notificaciones_activadas = Column(Boolean, default=False)  
 
-# Nueva tabla para el Historial de predicciones (CU 3.7 y 4.1)
+#Tabla para manejar el historial de predicciones (CU 3.7 y 4.1)
 class HistorialPrediccion(Base):
     __tablename__ = "historial_predicciones"
 
