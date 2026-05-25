@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de mi perfil</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css">  
+</head>
+
+<body>
+    
+    <div class="contenedor-tarjeta" style="max-width: 1000px;">
+        
+        <div class="cabecera-tarjeta">
+            <div class="adorno-bandera"></div>
+            <h1>Mi Perfil</h1>
+            <p style="color: #333333; font-weight: 500;">Gestiona tus datos, privacidad y cuenta.</p>
+        </div>
+
+        <div class="cuerpo-tarjeta" style="text-align: left;">
+            
+            <div style="display: flex; flex-direction: column; gap: var(--espacio-md);">
+                
+                <!-- Botón Información personal -->
+                <a href="/informacion_personal" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                    Información personal
+                </a>
+
+                <!-- Botón Notificaciones -->
+                <a href="/gestion_privacidad" class="btn btn-ghost btn-bloque" style="text-align: center;">
+                    Gestión de privacidad (Notificaciones)
+                </a>
+
+                <!-- Separador visual -->
+                <hr style="border: 0; border-top: 1px solid #CBD5E1; margin: var(--espacio-sm) 0;">
+
+                <!-- Botón Eliminar Cuenta -->
+                <a href="/eliminar_cuenta" class="btn btn-peligro btn-bloque" style="text-align: center;">
+                    Eliminar cuenta
+                </a>
+                
+            </div>
+
+            <!-- Botón Volver -->
+            <div style="margin-top: var(--espacio-lg); text-align: center;">
+                <a href="/menu_principal" class="btn btn-ghost btn-bloque" style="text-align: center; background-color: transparent; border-color: transparent; color: #333333; text-decoration: underline;">
+                    Volver al menú principal
+                </a>
+            </div>
+
+            <div id="mensaje_respuesta"></div>
+
+        </div>
+    </div>
+
+    <script src="/static/mi_perfil.js"></script>
+
+</body>
+
+</html>
