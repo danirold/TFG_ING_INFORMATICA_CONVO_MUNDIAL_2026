@@ -1,0 +1,16 @@
+# Entornos virtuales
+venv/
+env/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Bases de datos (si no quieres subir tus pruebas)
+*.sqlite3
+*.db
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
